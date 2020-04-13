@@ -1,0 +1,14 @@
+.todo-header {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.todo-add {
+    max-width: 90%;
+    margin: 20px auto 0;
+}
+
+.disabledButton {
+    pointer-events: none;
+    opacity: 0.4;
+}
