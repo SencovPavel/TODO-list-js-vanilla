@@ -29,7 +29,7 @@ const removeElementStorage = (removeId) => {
     }
 };
 
-const updateElementStorage = (updateId, updateName, updateText) => {
+const updateElementStorage = (updateId, updateName, updateText, check = false) => {
     const storage = getStorage();
     if (storage.length > 0) {
         const newStorage = storage.map(item => {
@@ -38,6 +38,7 @@ const updateElementStorage = (updateId, updateName, updateText) => {
                     taskId: updateId,
                     taskName: updateName,
                     taskText: updateText,
+                    disable: check,
                 }
             }
             return item;

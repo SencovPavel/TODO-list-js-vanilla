@@ -60,6 +60,9 @@ const checkCard = ({target, path}) => {
 
     const element = findInPath(path, 'name', 'Card');
     const {taskId} = element;
+    const {taskText, taskName} = getElementStorage(taskId);
+
+    updateElementStorage(taskId, taskName, taskText, checked);
 
     toggleButton(`updateTODOBtn-${taskId}`, checked);
     toggleButton(`removeTODOBtn-${taskId}`, checked);
@@ -74,10 +77,10 @@ const actionUpdateTODO = (element, header, body) => {
 
 const createCardTODO = (newCard) => {
     // create elements
-    const {taskId, taskName, taskText} = newCard;
+    const {taskId, taskName, taskText, disable} = newCard;
     const card = document.createElement('div');
-    const cardHeader = createCardHeader(taskId, taskName);
-    const cardBody = createCardBody(taskId, taskText);
+    const cardHeader = createCardHeader(taskId, taskName, disable);
+    const cardBody = createCardBody(taskId, taskText, disable);
 
     //add props
     card.className = 'card bg-light mb-3 todo-header';
@@ -92,7 +95,7 @@ const createCardTODO = (newCard) => {
     return card;
 };
 
-const createCardHeader = (elementId, taskName) => {
+const createCardHeader = (elementId, taskName, disable) => {
     // create elements
     const header = document.createElement('div');
     const nameTODO = document.createElement('div');
@@ -106,6 +109,7 @@ const createCardHeader = (elementId, taskName) => {
 
     checkTODOBtn.className = 'col-1 checkTODO';
     checkTODOBtn.type = 'checkbox';
+    checkTODOBtn.checked = disable;
     checkTODOBtn.id = `checkTODOBtn-${elementId}`;
     checkTODOBtn.addEventListener('click', checkCard);
 
@@ -116,7 +120,7 @@ const createCardHeader = (elementId, taskName) => {
     return header;
 };
 
-const createCardBody = (elementId, taskText) => {
+const createCardBody = (elementId, taskText, disable = false) => {
     // create elements
     const body = document.createElement('div');
     const textTODO = document.createElement('p');
@@ -132,11 +136,13 @@ const createCardBody = (elementId, taskText) => {
     updateTODOBtn.className = 'btn btn-warning mr-1';
     updateTODOBtn.textContent = 'Редактирование';
     updateTODOBtn.id = `updateTODOBtn-${elementId}`;
+    updateTODOBtn.disabled = disable;
     updateTODOBtn.addEventListener('click', updateTODO);
 
     removeTODOBtn.className = 'btn btn-danger';
     removeTODOBtn.textContent = 'Удаление';
     removeTODOBtn.id = `removeTODOBtn-${elementId}`;
+    removeTODOBtn.disabled = disable;
     removeTODOBtn.addEventListener('click', removeTODO);
 
     //append element
