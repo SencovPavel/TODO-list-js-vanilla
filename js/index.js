@@ -18,7 +18,7 @@ const addTODO = (e) => {
 };
 
 const removeTODO = ({path}) => {
-    const element = path.find(item => item.name === 'Card');
+    const element = path.find((item) => item.name === 'Card');
     removeElementStorage(element.taskId);
     element.remove();
 };
@@ -83,7 +83,7 @@ const createCardTODO = (newCard) => {
     const cardBody = createCardBody(taskId, taskText, disable);
 
     //add props
-    card.className = 'card bg-light mb-3 todo-header';
+    card.className = 'card';
     card.id = `Card-${taskId}`;
     card.taskId = taskId;
     card.name = 'Card';
@@ -102,12 +102,12 @@ const createCardHeader = (elementId, taskName, disable) => {
     const checkTODOBtn = document.createElement('input');
 
     //add props
-    header.className = 'card-header row m-0';
+    header.className = 'card-header';
 
-    nameTODO.className = 'col-11';
+    nameTODO.className = 'name-TODO';
     nameTODO.innerText = taskName;
 
-    checkTODOBtn.className = 'col-1 checkTODO';
+    checkTODOBtn.className = 'check-TODO';
     checkTODOBtn.type = 'checkbox';
     checkTODOBtn.checked = disable;
     checkTODOBtn.id = `checkTODOBtn-${elementId}`;
@@ -123,7 +123,7 @@ const createCardHeader = (elementId, taskName, disable) => {
 const createCardBody = (elementId, taskText, disable = false) => {
     // create elements
     const body = document.createElement('div');
-    const textTODO = document.createElement('p');
+    const textTODO = document.createElement('span');
     const updateTODOBtn = document.createElement('button');
     const removeTODOBtn = document.createElement('button');
 
@@ -133,7 +133,7 @@ const createCardBody = (elementId, taskText, disable = false) => {
     textTODO.className = 'card-text';
     textTODO.innerText = taskText;
 
-    updateTODOBtn.className = 'btn btn-warning mr-1';
+    updateTODOBtn.className = 'btn btn-warning';
     updateTODOBtn.textContent = 'Редактирование';
     updateTODOBtn.id = `updateTODOBtn-${elementId}`;
     updateTODOBtn.disabled = disable;
@@ -159,7 +159,7 @@ const createUpdateCardHeader = (elementId, taskName) => {
     const updateNameTODO = document.createElement('input');
 
     //add props
-    header.className = 'card-header row m-0';
+    header.className = 'card-header';
 
     updateNameTODO.className = 'col-11';
     updateNameTODO.value = taskName;
@@ -181,13 +181,13 @@ const createUpdateCardBody = (elementId, taskText) => {
 
     //add props
     body.className = 'card-body';
-    bodyForText.className = 'form-group mx-auto mt-2 col-12';
+    bodyForText.className = '';
 
-    updateTextTODO.className = 'form-control col-12';
+    updateTextTODO.className = '';
     updateTextTODO.value = taskText;
     updateTextTODO.id = `updateTextTODO-${elementId}`;
 
-    acceptTODOBtn.className = 'btn btn-warning mr-1';
+    acceptTODOBtn.className = 'btn btn-warning';
     acceptTODOBtn.textContent = 'Подтвердить';
     acceptTODOBtn.addEventListener('click', acceptUpdateTODO);
 
