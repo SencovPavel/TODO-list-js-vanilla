@@ -1,14 +1,115 @@
-.todo-header {
-    max-width: 90%;
-    margin: 0 auto;
+.container {
+    display: grid;
+    justify-self: center;
+    grid-template-areas: '. header .' '. body .';
+    grid-template-columns: 2fr 6fr 2fr;
 }
 
-.todo-add {
-    max-width: 90%;
-    margin: 20px auto 0;
+.header {
+    width: 100%;
+    display: grid;
+    grid-area: header;
+    justify-self: center;
+    margin-bottom: 16px;
+    grid-template-columns: 4fr 4fr 2fr;
 }
 
-.disabledButton {
+.body {
+    display: grid;
+    grid-area: body;
+}
+
+.card {
+    display: grid;
+    grid-template-areas: 'cardHeader' 'bodyCard';
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+    margin-bottom: 16px;
+    background-color: #f8f9fa;
+}
+
+.card-header {
+    display: grid;
+    grid-area: cardHeader;
+    grid-template-columns: 1fr 25px;
+    padding: 20px 10px;
+    background-color: rgba(0, 0, 0, .03);
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+}
+
+.card-body {
+    display: grid;
+    grid-area: bodyCard;
+    grid-template-columns: 8fr 1fr 1fr;
+    padding: 20px 10px;
+    align-self: center;
+}
+
+input {
+    margin-right: .25rem;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    color: #495057;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    margin-right: .25rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn:disabled{
     pointer-events: none;
     opacity: 0.4;
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+
+.btn-info:hover {
+    color: #fff;
+    background-color: #138496;
+    border-color: #117a8b;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger:hover {
+    color: #fff;
+    background-color: #c82333;
+    border-color: #bd2130;
 }
