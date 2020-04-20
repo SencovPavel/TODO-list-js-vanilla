@@ -5,25 +5,16 @@
     <title>App Todo list</title>
 
     <link href="css/index.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 <body>
 <div class="container">
-    <div>
-        <form class="form-inline todo-add">
-            <div class="form-group mx-sm-1 mb-2 col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                <input id="taskName" class="form-control col-12" placeholder="Название">
-            </div>
-            <div class="form-group mx-sm-1 mb-2 col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                <input id="taskText" class="form-control col-12" placeholder="Текст">
-            </div>
-            <div class="form-group mx-sm-1 mb-2 col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
-                <button class="btn btn-info col-12" id="addButton">Добавить</button>
-            </div>
-        </form>
+    <div class="header">
+        <input id="taskName" class="" placeholder="Название">
+        <input id="taskText" class="" placeholder="Текст">
+        <button class="btn btn-info" id="addButton">Добавить</button>
     </div>
-    <div id="todoList">
+    <div class="body" id="todoList">
     </div>
 
 </div>
